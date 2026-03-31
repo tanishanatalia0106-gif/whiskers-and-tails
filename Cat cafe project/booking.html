@@ -6,7 +6,6 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
-/* Seat grid */
 #seats {
     display: grid;
     grid-template-columns: repeat(5, 60px);
@@ -31,8 +30,6 @@
     background: #999;
     cursor: not-allowed;
 }
-
-/* Payment box */
 .payment-box {
     background: white;
     padding: 20px;
@@ -105,18 +102,15 @@ const ticketPrice = 500;
 
 let selectedSeat = null;
 
-// Load storage
 let bookedSeats = JSON.parse(localStorage.getItem("bookedSeats")) || {};
 let bookedCats = JSON.parse(localStorage.getItem("bookedCats")) || {};
 
-// TOTAL
 function calculateTotal() {
     const people = document.getElementById("people").value;
     document.getElementById("totalAmount").innerText =
         "Total Amount: ₹" + (people * ticketPrice || 0);
 }
 
-// SEATS
 const seatsDiv = document.getElementById("seats");
 
 for (let i = 1; i <= 15; i++) {
@@ -139,7 +133,6 @@ for (let i = 1; i <= 15; i++) {
     seatsDiv.appendChild(seat);
 }
 
-// CATS
 const cats = ["Milo", "Luna", "Oliver", "Bella", "Leo", "Nala"];
 const catSelect = document.getElementById("catSelect");
 
@@ -156,7 +149,6 @@ cats.forEach(cat => {
     catSelect.appendChild(option);
 });
 
-// CONFIRM BOOKING
 function confirmBooking(e) {
     e.preventDefault();
 
@@ -173,16 +165,11 @@ function confirmBooking(e) {
         return;
     }
 
-    // Save booking
     bookedSeats[selectedSeat] = true;
     bookedCats[cat] = true;
-
     localStorage.setItem("bookedSeats", JSON.stringify(bookedSeats));
     localStorage.setItem("bookedCats", JSON.stringify(bookedCats));
-
     const total = people * ticketPrice;
-
-    // PROFESSIONAL CONFIRMATION SCREEN
     document.body.innerHTML = `
         <div style="text-align:center; padding:60px;">
             <h1>🎉 Booking Confirmed!</h1>
