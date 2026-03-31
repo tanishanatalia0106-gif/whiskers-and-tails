@@ -4,10 +4,7 @@
 <meta charset="UTF-8">
 <title>Menu | Whiskers and Tails</title>
 <link rel="stylesheet" href="style.css">
-
 <style>
-
-/* TABS */
 .tabs {
     display: flex;
     justify-content: center;
@@ -28,7 +25,6 @@
     color: white;
 }
 
-/* MENU GRID */
 .menu-grid {
     display: none;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -41,7 +37,6 @@
     display: grid;
 }
 
-/* MENU ITEM */
 .menu-item {
     background: white;
     padding: 15px;
@@ -54,13 +49,11 @@
     transform: scale(1.05);
 }
 
-/* PRICE */
 .price {
     color: #ff7f50;
     font-weight: bold;
 }
 
-/* CANVAS */
 canvas {
     display: block;
     margin: 30px auto;
@@ -86,13 +79,11 @@ canvas {
 
 <h2>Our Menu ☕</h2>
 
-<!-- TABS -->
 <div class="tabs">
 <div class="tab-btn active" onclick="showMenu('normal')">☕ Café Menu</div>
 <div class="tab-btn" onclick="showMenu('cat')">🐱 Cat Menu</div>
 </div>
 
-<!-- NORMAL MENU -->
 <div id="normal" class="menu-grid active">
 
 <div class="menu-item"><h3>Espresso</h3><p class="price">₹100</p></div>
@@ -112,7 +103,6 @@ canvas {
 
 </div>
 
-<!-- CAT MENU -->
 <div id="cat" class="menu-grid">
 
 <div class="menu-item"><h3>Cat Milk</h3><p class="price">₹50</p></div>
@@ -127,14 +117,9 @@ canvas {
 
 </section>
 
-<!-- CANVAS -->
 <canvas id="menuCanvas" width="400" height="200"></canvas>
 
 <script>
-
-//////////////////////////////
-// TAB SWITCH
-//////////////////////////////
 
 function showMenu(type) {
 
@@ -145,11 +130,6 @@ function showMenu(type) {
 
     event.target.classList.add("active");
 }
-
-//////////////////////////////
-// CANVAS (floating food dots)
-//////////////////////////////
-
 const canvas = document.getElementById("menuCanvas");
 const ctx = canvas.getContext("2d");
 
