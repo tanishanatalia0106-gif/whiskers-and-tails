@@ -69,10 +69,6 @@ Relax, unwind, and enjoy time with our friendly feline companions 🐱☕
 
 <script>
 
-//////////////////////////////
-// LOAD REVIEWS (FIXED)
-//////////////////////////////
-
 function loadHomeReviews() {
     const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
     const container = document.getElementById("homeReviews");
@@ -105,9 +101,6 @@ function loadHomeReviews() {
 
 loadHomeReviews();
 
-//////////////////////////////
-// CANVAS INTERACTIVE PAW
-//////////////////////////////
 
 const canvas = document.getElementById("pawCanvas");
 const ctx = canvas.getContext("2d");
