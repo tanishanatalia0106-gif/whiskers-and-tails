@@ -1,4 +1,4 @@
-/* RESET */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,13 +6,11 @@
     font-family: Poppins, sans-serif;
 }
 
-/* BODY */
 body {
     background: #fdf6f0;
     line-height: 1.6;
 }
 
-/* HEADER */
 header {
     display: flex;
     justify-content: space-between; /* FIXED ALIGNMENT */
@@ -22,13 +20,11 @@ header {
     flex-wrap: wrap;
 }
 
-/* LOGO */
 .logo {
     font-weight: bold;
     font-size: 22px;
 }
 
-/* NAV */
 nav {
     display: flex;
     gap: 20px;
@@ -49,14 +45,12 @@ nav a:hover {
     box-shadow: 0 0 10px #ffcc80;
 }
 
-/* STUDENT INFO */
 .student-info {
     width: 100%;
     font-size: 14px;
     margin-bottom: 10px;
 }
 
-/* HOME SECTION */
 .home {
     height: 70vh;
     background: url("https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba") center/cover no-repeat;
@@ -71,7 +65,6 @@ nav a:hover {
     font-size: 18px;
 }
 
-/* GENERAL SECTION */
 .section {
     padding: 60px 20px;
     text-align: center;
@@ -83,7 +76,6 @@ h1, h2, h3 {
     color: #5a3e2b;
 }
 
-/* ICONS */
 .icon-container {
     display: flex;
     justify-content: center;
@@ -118,7 +110,6 @@ h1, h2, h3 {
     background: #ffefd5;
 }
 
-/* CARDS */
 .card-container {
     display: flex;
     justify-content: center;
@@ -147,7 +138,6 @@ h1, h2, h3 {
     object-fit: cover;
 }
 
-/* MENU */
 .menu-container {
     display: flex;
     justify-content: center;
@@ -164,7 +154,6 @@ h1, h2, h3 {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* TABLE */
 .timing-table {
     margin: 20px auto;
     width: 60%;
@@ -181,7 +170,6 @@ h1, h2, h3 {
     background: #fdebd0;
 }
 
-/* FORMS */
 form {
     max-width: 450px;
     margin: auto;
@@ -206,7 +194,6 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* ABOUT IMAGES */
 .about-gallery {
     display: flex;
     justify-content: center;
@@ -215,7 +202,6 @@ button:hover {
     width: 85%;
 }
 
-/* REVIEW CARDS */
 .review-box {
     background: white;
     padding: 15px;
@@ -225,7 +211,6 @@ button:hover {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* STAR RATING */
 .stars span {
     font-size: 22px;
     cursor: pointer;
@@ -235,7 +220,6 @@ button:hover {
     color: gold;
 }
 
-/* SEAT GRID */
 #seats {
     display: grid;
     grid-template-columns: repeat(5, 60px);
@@ -261,7 +245,6 @@ button:hover {
     cursor: not-allowed;
 }
 
-/* PAYMENT BOX */
 .payment-box {
     background: white;
     padding: 20px;
@@ -269,13 +252,11 @@ button:hover {
     margin-top: 20px;
 }
 
-/* CANVAS */
 canvas {
     display: block;
     margin: 30px auto;
 }
 
-/* ANIMATION */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
