@@ -7,7 +7,7 @@
 
 <style>
 
-/* CONTAINER */
+
 .allergy-box {
     background: white;
     max-width: 600px;
@@ -17,7 +17,7 @@
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* WARNING BOX */
+
 .warning {
     background: #ffe6e6;
     color: #b30000;
@@ -27,13 +27,13 @@
     display: none;
 }
 
-/* CHECKBOX GROUP */
+
 .checkbox-group {
     text-align: left;
     margin-top: 15px;
 }
 
-/* RESULT */
+
 .result-box {
     margin-top: 20px;
     padding: 15px;
@@ -95,10 +95,6 @@
 
 <script>
 
-//////////////////////////////
-// FORM SUBMIT
-//////////////////////////////
-
 function submitAllergy(e) {
     e.preventDefault();
 
@@ -127,10 +123,6 @@ function submitAllergy(e) {
         <p>We will make necessary arrangements for your visit 🐾</p>
     `;
 }
-
-//////////////////////////////
-// CANVAS (calm bubbles)
-//////////////////////////////
 
 const canvas = document.getElementById("allergyCanvas");
 const ctx = canvas.getContext("2d");
