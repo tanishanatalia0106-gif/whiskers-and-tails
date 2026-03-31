@@ -6,13 +6,11 @@
 
 <style>
 
-/* REMOVE EXTRA SPACE */
 body {
     margin: 0;
     padding: 0;
 }
 
-/* HERO IMAGE */
 .theme-hero {
     width: 90%;
     height: 300px;
@@ -22,14 +20,12 @@ body {
     background-position: center;
 }
 
-/* CONTENT */
 .theme-content {
     max-width: 900px;
     margin: auto;
     text-align: center;
 }
 
-/* BOXES */
 .theme-box {
     background: white;
     padding: 20px;
@@ -38,19 +34,15 @@ body {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* BUTTON */
 button {
     margin-top: 15px;
 }
 
-/* CANVAS */
 canvas {
     display: block;
     margin: 30px auto;
 }
-
 </style>
-
 </head>
 <body>
 
@@ -65,46 +57,30 @@ canvas {
 </header>
 
 <section class="section">
-
-<!-- HERO FIRST (IMPORTANT FIX) -->
 <div id="hero" class="theme-hero"></div>
-
 <div class="theme-content">
-
 <h2 id="title"></h2>
-
 <div class="theme-box">
 <h3>About This Theme</h3>
 <p id="desc"></p>
 </div>
-
 <div class="theme-box">
 <h3>Featured Cats 🐱</h3>
 <p id="cats"></p>
 </div>
-
 <div class="theme-box">
 <h3>Special Menu ☕</h3>
 <p id="menu"></p>
 </div>
-
 <button onclick="goToBooking()">Book This Experience 🎟️</button>
-
 </div>
-
 </section>
 
-<!-- CANVAS -->
 <canvas id="themeCanvas" width="400" height="200"></canvas>
 
 <script>
 
-////////////////////////////////////////////////////
-// LOAD THEME DATA
-////////////////////////////////////////////////////
-
 const theme = localStorage.getItem("selectedTheme");
-
 const data = {
 
 spring: {
@@ -140,26 +116,15 @@ img: "C:/Users/lawre/OneDrive - vit.ac.in/Desktop/VIT SECOND YEAR/4TH SEM/WEB PR
 }
 
 };
-
-// APPLY DATA
 const t = data[theme];
-
 document.getElementById("title").innerText = t.title;
 document.getElementById("desc").innerText = t.desc;
 document.getElementById("cats").innerText = t.cats;
 document.getElementById("menu").innerText = t.menu;
 document.getElementById("hero").style.backgroundImage = `url('${t.img}')`;
-
-////////////////////////////////////////////////////
-// BUTTON
-////////////////////////////////////////////////////
 function goToBooking() {
     window.location.href = "booking.html";
 }
-
-////////////////////////////////////////////////////
-// CANVAS (CLEAN DECOR)
-////////////////////////////////////////////////////
 
 const canvas = document.getElementById("themeCanvas");
 const ctx = canvas.getContext("2d");
