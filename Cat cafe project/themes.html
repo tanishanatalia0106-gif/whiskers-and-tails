@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Themes | Whiskers and Tails</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* HERO TITLE */
+.theme-title {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.theme-sub {
+    color: #777;
+    margin-bottom: 30px;
+}
+
+/* GRID */
+.theme-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    width: 85%;
+    margin: auto;
+}
+
+/* CARD (GLASS STYLE) */
+.theme-card {
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.3s;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.theme-card:hover {
+    transform: translateY(-8px) scale(1.03);
+}
+
+/* IMAGE */
+.theme-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* TEXT */
+.theme-content {
+    padding: 15px;
+}
+
+.theme-content h3 {
+    margin-bottom: 8px;
+}
+
+/* CANVAS BACKGROUND */
+#bgCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">🐾 Whiskers and Tails</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="cats.html">Our Cats</a>
+<a href="menu.html">Menu</a>
+<a href="themes.html">Themes</a>
+<a href="events.html">Events</a>
+<a href="allergies.html">Allergies</a>
+<a href="visit.html">Visit Us</a>
+<a href="booking.html">Book Tickets</a>
+<a href="reviews.html">Reviews</a>
+</nav>
+</header>
+
+<section class="section">
+
+<h2 class="theme-title">Seasonal Experiences 🎨</h2>
+<p class="theme-sub">Choose a theme and explore a unique vibe with our cats</p>
+
+<div class="theme-grid">
+
+<div class="theme-card" onclick="openTheme('spring')">
+<img src="C:\Users\lawre\OneDrive - vit.ac.in\Desktop\VIT SECOND YEAR\4TH SEM\WEB PROG\Cat cafe project\cat pics\spring.png">
+<div class="theme-content">
+<h3>🌸 Spring Paws</h3>
+<p>Soft pastel decor and playful kittens.</p>
+</div>
+</div>
+
+<div class="theme-card" onclick="openTheme('summer')">
+<img src="C:\Users\lawre\OneDrive - vit.ac.in\Desktop\VIT SECOND YEAR\4TH SEM\WEB PROG\Cat cafe project\cat pics\summer.png">
+<div class="theme-content">
+<h3>☀️ Summer Whiskers</h3>
+<p>Bright vibes and refreshing drinks.</p>
+</div>
+</div>
+
+<div class="theme-card" onclick="openTheme('autumn')">
+<img src="C:\Users\lawre\OneDrive - vit.ac.in\Desktop\VIT SECOND YEAR\4TH SEM\WEB PROG\Cat cafe project\cat pics\autumn.png">
+<div class="theme-content">
+<h3>🍂 Autumn Tails</h3>
+<p>Cozy lighting and warm treats.</p>
+</div>
+</div>
+
+<div class="theme-card" onclick="openTheme('winter')">
+<img src="C:\Users\lawre\OneDrive - vit.ac.in\Desktop\VIT SECOND YEAR\4TH SEM\WEB PROG\Cat cafe project\cat pics\winter.png">
+<div class="theme-content">
+<h3>❄️ Winter Cuddles</h3>
+<p>Festive decor and snuggly cats.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- CANVAS BACKGROUND -->
+<canvas id="bgCanvas"></canvas>
+
+<script>
+
+// THEME NAVIGATION
+function openTheme(theme) {
+    localStorage.setItem("selectedTheme", theme);
+    window.location.href = "theme-details.html";
+}
+
+////////////////////////////////////////////////////
+// CANVAS ANIMATION (floating circles background)
+////////////////////////////////////////////////////
+
+const canvas = document.getElementById("bgCanvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let circles = [];
+
+for (let i = 0; i < 25; i++) {
+    circles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 20,
+        dx: Math.random() * 1,
+        dy: Math.random() * 1
+    });
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    circles.forEach(c => {
+        ctx.beginPath();
+        ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(255,179,71,0.2)";
+        ctx.fill();
+
+        c.x += c.dx;
+        c.y += c.dy;
+
+        if (c.x > canvas.width) c.x = 0;
+        if (c.y > canvas.height) c.y = 0;
+    });
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+</script>
+
+</body>
+</html>
