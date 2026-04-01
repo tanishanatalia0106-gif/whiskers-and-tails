@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Event Details</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.event-hero {
+    width: 90%;
+    height: 300px;
+    margin: 20px auto;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+}
+
+.event-content {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.event-box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">🐾 Whiskers and Tails</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="events.html">Events</a>
+<a href="booking.html">Book Tickets</a>
+</nav>
+</header>
+
+<section class="section">
+
+<div id="hero" class="event-hero"></div>
+
+<div class="event-content">
+
+<h2 id="title"></h2>
+
+<div class="event-box">
+<h3>About Event</h3>
+<p id="desc"></p>
+</div>
+
+<div class="event-box">
+<h3>Activities</h3>
+<p id="activities"></p>
+</div>
+
+<div class="event-box">
+<h3>Special Offers</h3>
+<p id="offers"></p>
+</div>
+
+<button onclick="goToBooking()">Book This Event 🎟️</button>
+
+</div>
+
+</section>
+
+<script>
+
+const event = localStorage.getItem("selectedEvent");
+
+const data = {
+
+birthday: {
+title: "🎂 Cat Birthday Party",
+desc: "Celebrate birthdays with our cats in a fun decorated space.",
+activities: "Cake cutting, cat games, photo sessions",
+offers: "Free cupcake + discount drinks",
+img: "C:/Users/lawre/OneDrive - vit.ac.in/Desktop/VIT SECOND YEAR/4TH SEM/WEB PROG/Cat cafe project/cat pics/birthday.png"
+},
+
+movie: {
+title: "🎬 Cat Movie Night",
+desc: "Enjoy movies in a cozy setting with cats.",
+activities: "Movie screening, cuddle time",
+offers: "Free popcorn + drink combo",
+img: "C:/Users/lawre/OneDrive - vit.ac.in/Desktop/VIT SECOND YEAR/4TH SEM/WEB PROG/Cat cafe project/cat pics/movie.jpg"
+},
+
+yoga: {
+title: "🧘 Cat Yoga",
+desc: "Relaxing yoga session with calm cats.",
+activities: "Guided yoga + meditation",
+offers: "Free herbal tea",
+img: "C:/Users/lawre/OneDrive - vit.ac.in/Desktop/VIT SECOND YEAR/4TH SEM/WEB PROG/Cat cafe project/cat pics/yoga.webp"
+}
+
+};
+
+const e = data[event];
+
+document.getElementById("title").innerText = e.title;
+document.getElementById("desc").innerText = e.desc;
+document.getElementById("activities").innerText = e.activities;
+document.getElementById("offers").innerText = e.offers;
+document.getElementById("hero").style.backgroundImage = `url('${e.img}')`;
+
+function goToBooking() {
+    window.location.href = "booking.html";
+}
+
+</script>
+
+</body>
+</html>

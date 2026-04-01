@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Allergies | Whiskers and Tails</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* CONTAINER */
+.allergy-box {
+    background: white;
+    max-width: 600px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* WARNING BOX */
+.warning {
+    background: #ffe6e6;
+    color: #b30000;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    display: none;
+}
+
+/* CHECKBOX GROUP */
+.checkbox-group {
+    text-align: left;
+    margin-top: 15px;
+}
+
+/* RESULT */
+.result-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f0fff0;
+    border-radius: 10px;
+    display: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">🐾 Whiskers and Tails</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="menu.html">Menu</a>
+<a href="booking.html">Book Tickets</a>
+<a href="reviews.html">Reviews</a>
+</nav>
+</header>
+
+<section class="section">
+
+<h2>Allergies & Safety Check ⚠️</h2>
+<p>Please select any allergies so we can ensure your safety.</p>
+
+<div class="allergy-box">
+
+<div id="warning" class="warning">
+⚠️ You selected Cat Allergy — limited interaction recommended!
+</div>
+
+<form onsubmit="submitAllergy(event)">
+
+<div class="checkbox-group">
+<label><input type="checkbox" value="Cat Allergy"> Cat Allergy</label><br><br>
+<label><input type="checkbox" value="Dust Allergy"> Dust Allergy</label><br><br>
+<label><input type="checkbox" value="Food Allergy"> Food Allergy</label><br><br>
+<label><input type="checkbox" value="Breathing Issues"> Breathing Issues</label><br><br>
+<label><input type="checkbox" value="Special Seating"> Require Special Seating</label>
+</div>
+
+<textarea id="extra" placeholder="Any additional requirements..."></textarea>
+
+<button type="submit">Submit Details</button>
+
+</form>
+
+<div id="result" class="result-box"></div>
+
+</div>
+
+</section>
+
+<!-- CANVAS -->
+<canvas id="allergyCanvas" width="400" height="200"></canvas>
+
+<script>
+
+//////////////////////////////
+// FORM SUBMIT
+//////////////////////////////
+
+function submitAllergy(e) {
+    e.preventDefault();
+
+    const checks = document.querySelectorAll("input[type=checkbox]:checked");
+    const resultBox = document.getElementById("result");
+    const warning = document.getElementById("warning");
+
+    let selected = [];
+
+    checks.forEach(c => {
+        selected.push(c.value);
+    });
+
+    if (selected.includes("Cat Allergy")) {
+        warning.style.display = "block";
+    } else {
+        warning.style.display = "none";
+    }
+
+    resultBox.style.display = "block";
+
+    resultBox.innerHTML = `
+        <h3>✔ Details Submitted</h3>
+        <p><strong>Selected:</strong> ${selected.join(", ") || "None"}</p>
+        <p>We will make necessary arrangements for your visit 🐾</p>
+    `;
+}
+
+//////////////////////////////
+// CANVAS 
+//////////////////////////////
+
+const canvas = document.getElementById("allergyCanvas");
+const ctx = canvas.getContext("2d");
+
+for (let i = 0; i < 20; i++) {
+    ctx.beginPath();
+    ctx.arc(
+        Math.random()*400,
+        Math.random()*200,
+        Math.random()*12,
+        0,
+        Math.PI*2
+    );
+    ctx.fillStyle = "rgba(100,150,255,0.2)";
+    ctx.fill();
+}
+
+</script>
+
+</body>
+</html>

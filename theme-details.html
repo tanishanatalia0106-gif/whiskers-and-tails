@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Theme Details</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* REMOVE EXTRA SPACE */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* HERO IMAGE */
+.theme-hero {
+    width: 90%;
+    height: 300px;
+    margin: 20px auto;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* CONTENT */
+.theme-content {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+/* BOXES */
+.theme-box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* BUTTON */
+button {
+    margin-top: 15px;
+}
+
+/* CANVAS */
+canvas {
+    display: block;
+    margin: 30px auto;
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+<div class="logo">🐾 Whiskers and Tails</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="themes.html">Themes</a>
+<a href="booking.html">Book Tickets</a>
+</nav>
+</header>
+
+<section class="section">
+
+<!-- HERO FIRST (IMPORTANT FIX) -->
+<div id="hero" class="theme-hero"></div>
+
+<div class="theme-content">
+
+<h2 id="title"></h2>
+
+<div class="theme-box">
+<h3>About This Theme</h3>
+<p id="desc"></p>
+</div>
+
+<div class="theme-box">
+<h3>Featured Cats 🐱</h3>
+<p id="cats"></p>
+</div>
+
+<div class="theme-box">
+<h3>Special Menu ☕</h3>
+<p id="menu"></p>
+</div>
+
+<button onclick="goToBooking()">Book This Experience 🎟️</button>
+
+</div>
+
+</section>
+
+<!-- CANVAS -->
+<canvas id="themeCanvas" width="400" height="200"></canvas>
+
+<script>
+
+const theme = localStorage.getItem("selectedTheme");
+
+const data = {
+
+spring: {
+title: "🌸 Spring Paws",
+desc: "Experience a calm pastel-themed environment filled with playful kittens and floral décor.",
+cats: "Milo, Bella, Nala",
+menu: "Strawberry Latte, Floral Tea, Vanilla Cupcakes",
+img: "C:/Users/lawre/OneDrive - vit.ac.in/Desktop/VIT SECOND YEAR/4TH SEM/WEB PROG/Cat cafe project/cat pics/spring.png"
+},
+
+summer: {
+title: "☀️ Summer Whiskers",
+desc: "Bright and energetic theme with beach vibes and refreshing drinks.",
+cats: "Leo, Oliver, Simba",
+menu: "Iced Coffee, Lemon Tea, Mango Dessert",
+img: "C:/Users/lawre/OneDrive - vit.ac.in/Desktop/VIT SECOND YEAR/4TH SEM/WEB PROG/Cat cafe project/cat pics/summer.png"
+},
+
+autumn: {
+title: "🍂 Autumn Tails",
+desc: "Warm lighting, cozy seating, and relaxed cats.",
+cats: "Luna, Nala",
+menu: "Hot Chocolate, Pumpkin Spice Latte",
+img: "C:/Users/lawre/OneDrive - vit.ac.in/Desktop/VIT SECOND YEAR/4TH SEM/WEB PROG/Cat cafe project/cat pics/autumn.png"
+},
+
+winter: {
+title: "❄️ Winter Cuddles",
+desc: "Festive decorations with cuddly cats and warm treats.",
+cats: "Bella, Milo",
+menu: "Hot Cocoa, Cookies, Brownies",
+img: "C:/Users/lawre/OneDrive - vit.ac.in/Desktop/VIT SECOND YEAR/4TH SEM/WEB PROG/Cat cafe project/cat pics/winter.png"
+}
+
+};
+
+// APPLY DATA
+const t = data[theme];
+
+document.getElementById("title").innerText = t.title;
+document.getElementById("desc").innerText = t.desc;
+document.getElementById("cats").innerText = t.cats;
+document.getElementById("menu").innerText = t.menu;
+document.getElementById("hero").style.backgroundImage = `url('${t.img}')`;
+
+////////////////////////////////////////////////////
+// BUTTON
+////////////////////////////////////////////////////
+function goToBooking() {
+    window.location.href = "booking.html";
+}
+
+////////////////////////////////////////////////////
+// CANVAS (CLEAN DECOR)
+////////////////////////////////////////////////////
+
+const canvas = document.getElementById("themeCanvas");
+const ctx = canvas.getContext("2d");
+
+for (let i = 0; i < 20; i++) {
+    ctx.beginPath();
+    ctx.arc(
+        Math.random() * 400,
+        Math.random() * 200,
+        Math.random() * 15,
+        0,
+        Math.PI * 2
+    );
+    ctx.fillStyle = "rgba(255,179,71,0.3)";
+    ctx.fill();
+}
+
+</script>
+
+</body>
+</html>
